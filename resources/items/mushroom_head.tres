@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://rvu27fdetknk"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_w8oxi"]
+[ext_resource type="Texture2D" uid="uid://dv53w8jtsa7l2" path="res://sprites/items/mushroom_head.png" id="2_bnjo4"]
+
+[resource]
+script = ExtResource("1_w8oxi")
+title = ""
+texture = ExtResource("2_bnjo4")
+drop_chance = 1.0

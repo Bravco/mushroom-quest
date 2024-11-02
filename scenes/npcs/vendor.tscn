@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2cs54gapqq17"]
+
+[ext_resource type="Texture2D" uid="uid://clrdi431x47br" path="res://sprites/npcs/vendor.png" id="1_i1tt1"]
+[ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="2_lgbjf"]
+[ext_resource type="PackedScene" uid="uid://882udm2y568" path="res://scenes/dialog_interactable.tscn" id="3_2vucr"]
+[ext_resource type="Resource" path="res://dialogic/timelines/vendor.dtl" id="4_ajmmb"]
+[ext_resource type="Resource" uid="uid://cx4ci0rtjdhem" path="res://resources/quests/mushroom_heads.tres" id="5_7j537"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmvyh"]
+atlas = ExtResource("1_i1tt1")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5a4s"]
+atlas = ExtResource("1_i1tt1")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a22er"]
+atlas = ExtResource("1_i1tt1")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h1pe"]
+atlas = ExtResource("1_i1tt1")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2ood"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmvyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5a4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a22er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h1pe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejkg5"]
+radius = 4.0
+
+[node name="Vendor" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_k2ood")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_lgbjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ejkg5")
+
+[node name="DialogInteractable" parent="." instance=ExtResource("3_2vucr")]
+timeline = ExtResource("4_ajmmb")
+quest = ExtResource("5_7j537")

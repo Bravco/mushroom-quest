@@ -1,0 +1,694 @@
+[gd_scene load_steps=57 format=3 uid="uid://f0krqxgttmqn"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_y4tpg"]
+[ext_resource type="PackedScene" uid="uid://ck6q6i5bj8b5j" path="res://scenes/player/player_weapon.tscn" id="2_mvxgv"]
+[ext_resource type="Material" uid="uid://cdoqdu3ds8cs2" path="res://shaders/hit_flash_material.tres" id="3_uq75e"]
+[ext_resource type="Texture2D" uid="uid://wxoe8wk4uvtc" path="res://sprites/player.png" id="4_rom7o"]
+[ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadow-small.png" id="5_51gwx"]
+[ext_resource type="Script" path="res://scripts/health.gd" id="6_gtubs"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="7_h3wjk"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="8_07oo3"]
+[ext_resource type="Script" path="res://scripts/journal.gd" id="9_yc5pw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wogvo"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkb8s"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd3pp"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu3k5"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u83tl"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fccqd"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r2ax"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv0hu"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noymv"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgxr"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rdd2"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp64a"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4wdr"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m52m4"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl8tf"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(192, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmekv"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(224, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7hxy"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iyxp"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph8jh"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uo0n"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwspn"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qthsu"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkj42"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3jib"]
+atlas = ExtResource("4_rom7o")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22n1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wogvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkb8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd3pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu3k5")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u83tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fccqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r2ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0hu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noymv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukgxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rdd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp64a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4wdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m52m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl8tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmekv")
+}],
+"loop": false,
+"name": &"roll",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7hxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iyxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph8jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uo0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwspn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qthsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkj42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3jib")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_refjy"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_c60rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gnsyd"]
+resource_name = "death"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gq0e3"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_gla24"]
+resource_name = "roll"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"roll"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_pq6pj"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3y8yq"]
+_data = {
+"RESET": SubResource("Animation_c60rl"),
+"death": SubResource("Animation_gnsyd"),
+"idle": SubResource("Animation_gq0e3"),
+"roll": SubResource("Animation_gla24"),
+"run": SubResource("Animation_pq6pj")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bvi5r"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_njc17"]
+animation = &"roll"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_edyhc"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f04qm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qlfuq"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c5uqh"]
+advance_mode = 2
+advance_condition = &"is_idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82g7g"]
+advance_mode = 2
+advance_condition = &"is_rolling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ryj1i"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xjqx"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7k2tn"]
+advance_mode = 2
+advance_condition = &"is_rolling"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h4rlm"]
+states/idle/node = SubResource("AnimationNodeAnimation_bvi5r")
+states/idle/position = Vector2(475, 100)
+states/roll/node = SubResource("AnimationNodeAnimation_njc17")
+states/roll/position = Vector2(562, 13)
+states/run/node = SubResource("AnimationNodeAnimation_edyhc")
+states/run/position = Vector2(562, 170)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_f04qm"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_qlfuq"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_c5uqh"), "run", "roll", SubResource("AnimationNodeStateMachineTransition_82g7g"), "roll", "run", SubResource("AnimationNodeStateMachineTransition_ryj1i"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_6xjqx"), "idle", "roll", SubResource("AnimationNodeStateMachineTransition_7k2tn")]
+graph_offset = Vector2(-69, -43)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvdl5"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_lcyvg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xopey"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78mvk"]
+_data = {
+"RESET": SubResource("Animation_lcyvg"),
+"hit_flash": SubResource("Animation_xopey")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_y4tpg")
+
+[node name="Weapon" parent="." instance=ExtResource("2_mvxgv")]
+position = Vector2(0, -4)
+
+[node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("3_uq75e")
+sprite_frames = SubResource("SpriteFrames_22n1v")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+offset = Vector2(0, -12)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("5_51gwx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_refjy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3y8yq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_h4rlm")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_idling = false
+parameters/conditions/is_rolling = false
+parameters/conditions/is_running = false
+
+[node name="RollTimer" type="Timer" parent="."]
+
+[node name="RollCooldownTimer" type="Timer" parent="."]
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("6_gtubs")
+MAX_HEALTH = 5
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("7_h3wjk")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_lvdl5")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_78mvk")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+script = ExtResource("8_07oo3")
+metadata/_edit_lock_ = true
+
+[node name="Journal" type="CanvasLayer" parent="."]
+script = ExtResource("9_yc5pw")
+
+[node name="Control" type="Control" parent="Journal"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Journal/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="Journal/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Journal/Control/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "(J) Journal"
+
+[node name="HSeparator" type="HSeparator" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "On-going Quests"
+
+[node name="MarginContainer" type="MarginContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921238, 0.767096, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "The Boar Threat"
+
+[node name="Label2" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Fungus Caverns"
+
+[node name="Label3" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Cold Hearted"
+
+[node name="Label4" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Family Heritage"
+
+[node name="Label5" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Mushroom Heads"
+
+[node name="VSeparator" type="VSeparator" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "The Boar Threat"
+
+[node name="MarginContainer" type="MarginContainer" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Kill 10 boars around the village and report back to the guard."
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Journal/Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Progress 0 / 10"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="RollTimer" to="." method="_on_roll_timer_timeout"]
+[connection signal="timeout" from="RollCooldownTimer" to="." method="_on_roll_cooldown_timer_timeout"]
+[connection signal="Death" from="Health" to="." method="_on_health_death"]
+[connection signal="Harm" from="Health" to="." method="_on_health_harm"]

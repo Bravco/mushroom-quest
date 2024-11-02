@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=6 format=3 uid="uid://l4sgcbo3imy5"]
+
+[ext_resource type="Resource" uid="uid://j02vo62mso5k" path="res://resources/items/stone_heart.tres" id="1_4l85c"]
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_jv3m8"]
+[ext_resource type="Texture2D" uid="uid://c1ciokxes46fi" path="res://sprites/items/stone_heart.png" id="2_2umlr"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/cold_hearted.dtl" id="3_u12ed"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/cold_hearted_completed.dtl" id="4_0t4s3"]
+
+[resource]
+script = ExtResource("1_jv3m8")
+title = "Cold Hearted"
+description = "Kill Golmes in order to get 5 Stone Hearts and bring them back to the blacksmith."
+objective_entity = ExtResource("1_4l85c")
+objective_entity_texture = ExtResource("2_2umlr")
+objective_quantity = 5
+timeline = ExtResource("3_u12ed")
+timeline_completed = ExtResource("4_0t4s3")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://csb5aqafuims7"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_x1cyc"]
+[ext_resource type="Texture2D" uid="uid://cqc3doxytoo8h" path="res://sprites/items/bread.png" id="2_mrixf"]
+
+[resource]
+script = ExtResource("1_x1cyc")
+title = "Bread"
+texture = ExtResource("2_mrixf")
+drop_chance = 1.0

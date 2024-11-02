@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=6 format=3 uid="uid://dbxqoeqsyf468"]
+
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_etxee"]
+[ext_resource type="Resource" uid="uid://csb5aqafuims7" path="res://resources/items/bread.tres" id="1_mt4bt"]
+[ext_resource type="Texture2D" uid="uid://cqc3doxytoo8h" path="res://sprites/items/bread.png" id="2_arfth"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/stolen_bread.dtl" id="4_32cms"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/stolen_bread_completed.dtl" id="5_wxe4e"]
+
+[resource]
+script = ExtResource("1_etxee")
+title = "Stolen Bread"
+description = "Recover 5 stolen Breads from the Gnomes. Bread could be found in crates in their camps."
+objective_entity = ExtResource("1_mt4bt")
+objective_entity_texture = ExtResource("2_arfth")
+objective_quantity = 5
+timeline = ExtResource("4_32cms")
+timeline_completed = ExtResource("5_wxe4e")

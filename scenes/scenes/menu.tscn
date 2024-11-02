@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbv3fb2bohvmk"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_eonwa"]
+[ext_resource type="Texture2D" uid="uid://bix5i4ofkont2" path="res://sprites/ui/button_background.png" id="2_a7a0u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3g46m"]
+texture = ExtResource("2_a7a0u")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ie2yo"]
+texture = ExtResource("2_a7a0u")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Menu" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_eonwa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_font_sizes/font_size = 32
+text = "Mushroom Quest"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="StartButton" type="Button" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_disabled_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_hover_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_pressed_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_focus_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_styles/focus = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_ie2yo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ie2yo")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_ie2yo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ie2yo")
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_disabled_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_hover_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_pressed_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_focus_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.207843, 0.207843, 0.25098, 1)
+theme_override_styles/focus = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_ie2yo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ie2yo")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3g46m")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_ie2yo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ie2yo")
+text = "Quit"
+
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,509 @@
+[gd_scene load_steps=20 format=3 uid="uid://ck6q6i5bj8b5j"]
+
+[ext_resource type="Script" path="res://scripts/player/player_weapon.gd" id="1_frqch"]
+[ext_resource type="Texture2D" uid="uid://d08s86ywdp7lb" path="res://sprites/weapons/sword.png" id="2_k8r3g"]
+[ext_resource type="Texture2D" uid="uid://bavkni4ctbicm" path="res://sprites/weapons/pierce.png" id="3_672hf"]
+[ext_resource type="Texture2D" uid="uid://1r3kjpvcmfe8" path="res://sprites/player_hand.png" id="3_icfn4"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="4_8yiq1"]
+[ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="5_egh81"]
+[ext_resource type="Texture2D" uid="uid://crw0nm2h6pdoi" path="res://sprites/weapons/slash.png" id="5_x4sfa"]
+[ext_resource type="Script" path="res://scripts/player/player_weapon_idle.gd" id="6_dq5qg"]
+[ext_resource type="Script" path="res://scripts/player/player_weapon_attack.gd" id="9_rfep0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrsjr"]
+radius = 16.0
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uqpo"]
+radius = 13.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_dcrv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwingHitbox/SwingCollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Weapon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Slash:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pivot/Weapon:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pierce:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pierce:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PierceHitbox/PierceCollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tne2r"]
+resource_name = "pierce"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.349066, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Weapon:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.785398, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Weapon:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.14, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, -4), Vector2(0, -4), Vector2(0, -16), Vector2(0, -10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pierce:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pierce:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PierceHitbox/PierceCollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_88jxf"]
+resource_name = "pierce_return"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5708, -0.349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_7mr6w"]
+resource_name = "swing1"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwingHitbox/SwingCollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.83972, 3.83972]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Weapon:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.785398, 0.785398, 0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Slash:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03, 0.04, 0.05, 0.07, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_5ym4n"]
+resource_name = "swing1_return"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.83972, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.785398, -0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_lbeps"]
+resource_name = "swing2"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwingHitbox/SwingCollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.83972, -0.349066, -0.349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Weapon:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.785398, -0.785398, -0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Slash:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03, 0.04, 0.05, 0.07, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_gia6h"]
+resource_name = "swing2_return"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.349066, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf043"]
+_data = {
+"RESET": SubResource("Animation_dcrv7"),
+"pierce": SubResource("Animation_tne2r"),
+"pierce_return": SubResource("Animation_88jxf"),
+"swing1": SubResource("Animation_7mr6w"),
+"swing1_return": SubResource("Animation_5ym4n"),
+"swing2": SubResource("Animation_lbeps"),
+"swing2_return": SubResource("Animation_gia6h")
+}
+
+[node name="Weapon" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_frqch")
+
+[node name="Slash" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(16, 0)
+texture = ExtResource("5_x4sfa")
+hframes = 5
+
+[node name="Pierce" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 0)
+texture = ExtResource("3_672hf")
+hframes = 2
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Weapon" type="Node2D" parent="Pivot"]
+position = Vector2(0, -10)
+rotation = -0.785398
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot/Weapon"]
+texture = ExtResource("2_k8r3g")
+hframes = 4
+vframes = 3
+
+[node name="HandSprite" type="Sprite2D" parent="Pivot/Weapon"]
+position = Vector2(0, 7)
+texture = ExtResource("3_icfn4")
+
+[node name="SwingHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_8yiq1")
+damage = 1
+
+[node name="SwingCollisionShape2D" type="CollisionShape2D" parent="SwingHitbox"]
+position = Vector2(14, 0)
+shape = SubResource("CapsuleShape2D_lrsjr")
+disabled = true
+
+[node name="PierceHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_8yiq1")
+damage = 2
+
+[node name="PierceCollisionShape2D" type="CollisionShape2D" parent="PierceHitbox"]
+position = Vector2(18, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0uqpo")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kf043")
+}
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_egh81")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_dq5qg")
+
+[node name="Swing1" type="Node" parent="StateMachine"]
+script = ExtResource("9_rfep0")
+current_animation_name = "swing1"
+next_animation_name = "swing2"
+return_animation_name = "swing1_return"
+
+[node name="Swing2" type="Node" parent="StateMachine"]
+script = ExtResource("9_rfep0")
+current_animation_name = "swing2"
+next_animation_name = "pierce"
+return_animation_name = "swing2_return"
+
+[node name="Pierce" type="Node" parent="StateMachine"]
+script = ExtResource("9_rfep0")
+current_animation_name = "pierce"
+next_animation_name = "swing1"
+return_animation_name = "pierce_return"
+swing_cooldown = 0.4
+wait_time = 0.0

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://882udm2y568"]
+
+[ext_resource type="Script" path="res://scripts/dialog_interactable.gd" id="1_tx4yg"]
+[ext_resource type="Texture2D" uid="uid://cayf2jj6kthpe" path="res://sprites/ui/f_key.png" id="2_ug1gk"]
+[ext_resource type="Texture2D" uid="uid://bsquoehy6vgd0" path="res://sprites/ui/quest_indicator.png" id="3_epncf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bf3r"]
+radius = 16.0
+
+[node name="DialogInteractable" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_tx4yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5bf3r")
+
+[node name="InteractKey" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(0, 8)
+texture = ExtResource("2_ug1gk")
+
+[node name="QuestIndicator" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_epncf")
+offset = Vector2(0, -24)
+hframes = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

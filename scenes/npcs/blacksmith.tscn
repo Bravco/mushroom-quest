@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://uh1oe7jpupmq"]
+
+[ext_resource type="Texture2D" uid="uid://cyt4u6jqou15h" path="res://sprites/npcs/blacksmith.png" id="1_0gh8l"]
+[ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="2_4p5dv"]
+[ext_resource type="PackedScene" uid="uid://882udm2y568" path="res://scenes/dialog_interactable.tscn" id="3_xxepd"]
+[ext_resource type="Resource" path="res://dialogic/timelines/blacksmith.dtl" id="4_7pskf"]
+[ext_resource type="Resource" uid="uid://l4sgcbo3imy5" path="res://resources/quests/cold_hearted.tres" id="5_mxmbf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bprbd"]
+atlas = ExtResource("1_0gh8l")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bbkb"]
+atlas = ExtResource("1_0gh8l")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am4n2"]
+atlas = ExtResource("1_0gh8l")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayeld"]
+atlas = ExtResource("1_0gh8l")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2ood"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bprbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bbkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am4n2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayeld")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyd0j"]
+radius = 4.0
+
+[node name="Blacksmith" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_k2ood")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0714337
+flip_h = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_4p5dv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_cyd0j")
+
+[node name="DialogInteractable" parent="." instance=ExtResource("3_xxepd")]
+timeline = ExtResource("4_7pskf")
+quest = ExtResource("5_mxmbf")

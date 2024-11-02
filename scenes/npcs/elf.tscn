@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://v27o8umknm5a"]
+
+[ext_resource type="Texture2D" uid="uid://b2l84pyx37eag" path="res://sprites/npcs/elf.png" id="1_w3f2h"]
+[ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="2_xef0u"]
+[ext_resource type="PackedScene" uid="uid://882udm2y568" path="res://scenes/dialog_interactable.tscn" id="3_2ah2r"]
+[ext_resource type="Resource" path="res://dialogic/timelines/elf.dtl" id="4_lckte"]
+[ext_resource type="Resource" uid="uid://dbxqoeqsyf468" path="res://resources/quests/stolen_bread.tres" id="5_dchkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku6k7"]
+atlas = ExtResource("1_w3f2h")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqv50"]
+atlas = ExtResource("1_w3f2h")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkluk"]
+atlas = ExtResource("1_w3f2h")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur4u2"]
+atlas = ExtResource("1_w3f2h")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2ood"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku6k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqv50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkluk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur4u2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejkg5"]
+radius = 4.0
+
+[node name="Elf" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_k2ood")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_xef0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ejkg5")
+
+[node name="DialogInteractable" parent="." instance=ExtResource("3_2ah2r")]
+timeline = ExtResource("4_lckte")
+quest = ExtResource("5_dchkr")

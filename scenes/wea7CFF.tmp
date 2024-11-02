@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck6q6i5bj8b5j"]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_ic2fp"]
+[ext_resource type="Texture2D" uid="uid://d08s86ywdp7lb" path="res://assets/sprites/sword.png" id="2_xxo11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82jt2"]
+atlas = ExtResource("2_xxo11")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvn8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82jt2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_ic2fp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_nvn8y")

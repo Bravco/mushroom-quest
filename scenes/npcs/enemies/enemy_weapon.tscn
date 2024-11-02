@@ -1,0 +1,211 @@
+[gd_scene load_steps=15 format=3 uid="uid://boja1i72suqbf"]
+
+[ext_resource type="Script" path="res://scripts/npc/enemy/enemy_weapon.gd" id="1_mqbju"]
+[ext_resource type="Texture2D" uid="uid://bq05uikt8bih2" path="res://sprites/weapons/dagger.png" id="2_y73ft"]
+[ext_resource type="Texture2D" uid="uid://qhr1rka0vnkx" path="res://sprites/npcs/enemies/gnome_hand.png" id="3_ue6iy"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="4_jvmxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6op4"]
+atlas = ExtResource("2_y73ft")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myufj"]
+atlas = ExtResource("2_y73ft")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8os3a"]
+atlas = ExtResource("2_y73ft")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf8ap"]
+atlas = ExtResource("2_y73ft")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lavoq"]
+atlas = ExtResource("2_y73ft")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvn8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6op4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myufj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8os3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myufj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf8ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lavoq")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrsjr"]
+radius = 9.19239
+height = 24.0416
+
+[sub_resource type="Animation" id="Animation_dcrv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Weapon/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Weapon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Weapon/AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"swing"]
+}
+
+[sub_resource type="Animation" id="Animation_7xipu"]
+resource_name = "swing"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Weapon/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.4),
+"transitions": PackedFloat32Array(1, 0.5, 2, 1),
+"update": 0,
+"values": [0.0, 3.83972, 3.83972, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Weapon:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.4),
+"transitions": PackedFloat32Array(1, 0.5, 2, 1),
+"update": 0,
+"values": [-0.785398, 0.785398, 0.785398, -0.785398]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Weapon/AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"swing", &"default"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf043"]
+_data = {
+"RESET": SubResource("Animation_dcrv7"),
+"swing": SubResource("Animation_7xipu")
+}
+
+[node name="Weapon" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_mqbju")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Weapon" type="Node2D" parent="Pivot"]
+position = Vector2(0, -10)
+rotation = -0.785398
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Weapon"]
+sprite_frames = SubResource("SpriteFrames_nvn8y")
+animation = &"swing"
+autoplay = "default"
+
+[node name="HandSprite" type="Sprite2D" parent="Pivot/Weapon"]
+position = Vector2(1.43051e-06, 7.07107)
+texture = ExtResource("3_ue6iy")
+
+[node name="Hitbox" type="Area2D" parent="Pivot/Weapon"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_jvmxb")
+damage = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Weapon/Hitbox"]
+position = Vector2(-9.53674e-07, -4.24264)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lrsjr")
+disabled = true
+
+[node name="SwingCooldownTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kf043")
+}
+
+[connection signal="timeout" from="SwingCooldownTimer" to="." method="_on_swing_cooldown_timer_timeout"]

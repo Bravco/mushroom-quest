@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://bggg62dkga0id"]
+
+[ext_resource type="PackedScene" uid="uid://c8gdyox0utxlc" path="res://scenes/npcs/enemies/boar.tscn" id="1_6cnd7"]
+[ext_resource type="Texture2D" uid="uid://bdhdnjtp2d2ux" path="res://sprites/npcs/enemies/boar.png" id="2_8l2a5"]
+[ext_resource type="Script" path="res://scripts/quest.gd" id="2_p088n"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/the_boar_threat.dtl" id="3_622si"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/the_boar_threat_completed.dtl" id="4_x2v2y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tileh"]
+atlas = ExtResource("2_8l2a5")
+region = Rect2(3, 9, 19, 14)
+
+[resource]
+script = ExtResource("2_p088n")
+title = "The Boar Threat"
+description = "Kill 10 boars around the village and report back to the guard."
+objective_entity = ExtResource("1_6cnd7")
+objective_entity_texture = SubResource("AtlasTexture_tileh")
+objective_quantity = 10
+timeline = ExtResource("3_622si")
+timeline_completed = ExtResource("4_x2v2y")

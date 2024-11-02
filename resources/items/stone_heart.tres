@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://j02vo62mso5k"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_k23ry"]
+[ext_resource type="Texture2D" uid="uid://c1ciokxes46fi" path="res://sprites/items/stone_heart.png" id="2_r3pgf"]
+
+[resource]
+script = ExtResource("1_k23ry")
+title = "Stone Heart"
+texture = ExtResource("2_r3pgf")
+drop_chance = 1.0
+disabled = false

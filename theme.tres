@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://fgjwsxpwqfk4"]
+
+[ext_resource type="Texture2D" uid="uid://dm2wb3thvutoa" path="res://sprites/ui/ui_background.png" id="1_6bdp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5dew"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bduar"]
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2d81"]
+texture = ExtResource("1_6bdp6")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kg8hq"]
+color = Color(0.207843, 0.207843, 0.25098, 1)
+vertical = true
+
+[resource]
+FlatButton/colors/font_color = Color(0.207843, 0.207843, 0.25098, 1)
+FlatButton/colors/font_disabled_color = Color(0.207843, 0.207843, 0.25098, 1)
+FlatButton/colors/font_focus_color = Color(0.207843, 0.207843, 0.25098, 1)
+FlatButton/colors/font_hover_color = Color(0.208, 0.208, 0.251, 0.8)
+FlatButton/colors/font_hover_pressed_color = Color(0.207843, 0.207843, 0.25098, 1)
+FlatButton/colors/font_outline_color = Color(0.207843, 0.207843, 0.25098, 1)
+FlatButton/colors/font_pressed_color = Color(0.207843, 0.207843, 0.25098, 1)
+FlatButton/styles/disabled = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/disabled_mirrored = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/focus = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/hover = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/hover_mirrored = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/hover_pressed = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/normal = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/normal_mirrored = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/pressed = SubResource("StyleBoxEmpty_q5dew")
+FlatButton/styles/pressed_mirrored = SubResource("StyleBoxEmpty_q5dew")
+HSeparator/styles/separator = SubResource("StyleBoxLine_bduar")
+Label/colors/font_color = Color(0.207843, 0.207843, 0.25098, 1)
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_h2d81")
+VSeparator/styles/separator = SubResource("StyleBoxLine_kg8hq")

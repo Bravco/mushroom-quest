@@ -1,0 +1,156 @@
+[gd_scene load_steps=21 format=3 uid="uid://dqasupomauvjf"]
+
+[ext_resource type="Texture2D" uid="uid://fopslvmfje41" path="res://sprites/objects/green_shop.png" id="1_tjvbf"]
+[ext_resource type="PackedScene" uid="uid://cc66wljqilhbs" path="res://scenes/gateway.tscn" id="2_1drq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2op2r"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(0, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp8aq"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(96, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agocj"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(192, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22na6"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(288, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dme27"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(0, 112, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw4rs"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(96, 112, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioirr"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(192, 112, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fceiu"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(288, 112, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkudn"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(0, 224, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erkbp"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(96, 224, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmitk"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(192, 224, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jfew"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(288, 224, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvkk7"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(0, 336, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5cy6"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(96, 336, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aqbj"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(192, 336, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi20p"]
+atlas = ExtResource("1_tjvbf")
+region = Rect2(288, 336, 96, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kp03f"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_2op2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp8aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agocj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22na6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dme27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw4rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioirr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fceiu")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_fkudn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erkbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmitk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jfew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvkk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5cy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aqbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi20p")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5odb2"]
+
+[node name="Shop" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kp03f")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(5, 14)
+polygon = PackedVector2Array(-34, -21, 35, -21, 35, -4, 38, -4, 38, 19, 31, 18.7656, 31, 32, -34, 32, -34, 3.375)
+
+[node name="Gateway" parent="." instance=ExtResource("2_1drq6")]
+position = Vector2(-7, 37)
+gateway_tag = "shop"
+destination_scene_tag = "shop"
+destination_gateway_tag = "shop"
+
+[node name="Spawnpoint" parent="Gateway" index="0"]
+position = Vector2(0, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gateway"]
+shape = SubResource("RectangleShape2D_5odb2")
+
+[editable path="Gateway"]

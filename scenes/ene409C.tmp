@@ -1,0 +1,150 @@
+[gd_scene load_steps=21 format=3 uid="uid://c8gdyox0utxlc"]
+
+[ext_resource type="Texture2D" uid="uid://bdhdnjtp2d2ux" path="res://assets/sprites/boar_.png" id="1_38uvf"]
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_b0arj"]
+[ext_resource type="Script" path="res://scripts/enemy/state_machine.gd" id="3_b6pbq"]
+[ext_resource type="Script" path="res://scripts/enemy/wander.gd" id="4_ug4j7"]
+[ext_resource type="Script" path="res://scripts/enemy/chase.gd" id="5_l0qy3"]
+[ext_resource type="Script" path="res://scripts/enemy/return.gd" id="6_fum4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et5rr"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p4cd"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62muw"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw7xd"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yik6"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm84e"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn322"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p2mu"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk0ws"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay4jp"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svkqn"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj7l2"]
+atlas = ExtResource("1_38uvf")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8b5xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et5rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p4cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62muw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw7xd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yik6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm84e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn322")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p2mu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk0ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay4jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svkqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj7l2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knrre"]
+radius = 4.0
+height = 12.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_b0arj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_8b5xa")
+animation = &"walk"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_knrre")
+metadata/_edit_lock_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_b6pbq")
+initial_state = NodePath("Wander")
+
+[node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "navigation_agent")]
+script = ExtResource("4_ug4j7")
+enemy = NodePath("../..")
+navigation_agent = NodePath("../../NavigationAgent2D")
+
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "navigation_agent")]
+script = ExtResource("5_l0qy3")
+enemy = NodePath("../..")
+navigation_agent = NodePath("../../NavigationAgent2D")
+
+[node name="Return" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "navigation_agent")]
+script = ExtResource("6_fum4u")
+enemy = NodePath("../..")
+navigation_agent = NodePath("../../NavigationAgent2D")

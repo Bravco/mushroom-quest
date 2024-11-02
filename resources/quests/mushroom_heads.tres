@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=6 format=3 uid="uid://cx4ci0rtjdhem"]
+
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_3kol2"]
+[ext_resource type="Resource" uid="uid://rvu27fdetknk" path="res://resources/items/mushroom_head.tres" id="1_q7qsh"]
+[ext_resource type="Texture2D" uid="uid://dv53w8jtsa7l2" path="res://sprites/items/mushroom_head.png" id="2_wlpga"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/mushroom_heads.dtl" id="3_ycrcw"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/mushroom_heads_completed.dtl" id="4_r1lwy"]
+
+[resource]
+script = ExtResource("1_3kol2")
+title = "Mushroom Heads"
+description = "Collect 20 Mushrooms Heads from Fugants and Fungiants."
+objective_entity = ExtResource("1_q7qsh")
+objective_entity_texture = ExtResource("2_wlpga")
+objective_quantity = 20
+timeline = ExtResource("3_ycrcw")
+timeline_completed = ExtResource("4_r1lwy")
