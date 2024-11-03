@@ -89,9 +89,11 @@ func handle_drop_items() -> void:
 			call_deferred("instantiate_item", drop_item)
 
 func instantiate_item(item: Item) -> void:
+	const spawn_radius: float = 10.0
 	var pickable_item: Node = preload("res://scenes/pickable_item.tscn").instantiate()
 	pickable_item.item = item
-	pickable_item.global_position = global_position
+	pickable_item.global_position = global_position + \
+		Vector2(randf_range(-spawn_radius, spawn_radius), randf_range(-spawn_radius, spawn_radius))
 	get_parent().add_child(pickable_item)
 
 func _on_animated_sprite_animation_finished() -> void:

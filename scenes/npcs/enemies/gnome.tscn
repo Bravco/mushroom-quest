@@ -1,10 +1,12 @@
-[gd_scene load_steps=37 format=3 uid="uid://c623c11g4iii0"]
+[gd_scene load_steps=39 format=3 uid="uid://c623c11g4iii0"]
 
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy.gd" id="1_6gr5h"]
 [ext_resource type="Texture2D" uid="uid://bj52rdotitfuk" path="res://sprites/npcs/enemies/gnome.png" id="1_oog82"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_0q4oo"]
 [ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="2_ax11e"]
 [ext_resource type="Material" uid="uid://cdoqdu3ds8cs2" path="res://shaders/hit_flash_material.tres" id="2_c6cpb"]
 [ext_resource type="PackedScene" uid="uid://boja1i72suqbf" path="res://scenes/npcs/enemies/enemy_weapon.tscn" id="2_jv12r"]
+[ext_resource type="Resource" uid="uid://c2fvxoxo4mcls" path="res://resources/items/heart.tres" id="3_7tcrp"]
 [ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="3_msilx"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="4_4a13c"]
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy_wander.gd" id="5_kbbvo"]
@@ -196,6 +198,7 @@ _data = {
 
 [node name="Gnome" type="CharacterBody2D"]
 script = ExtResource("1_6gr5h")
+drop_items = Array[ExtResource("2_0q4oo")]([ExtResource("3_7tcrp")])
 
 [node name="Weapon" parent="." instance=ExtResource("2_jv12r")]
 position = Vector2(0, -4)

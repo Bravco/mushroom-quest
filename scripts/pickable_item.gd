@@ -22,12 +22,14 @@ func _physics_process(delta: float) -> void:
 		speed = lerp(speed, MAX_SPEED, ACCELERATION * delta)
 		velocity = global_position.direction_to(player.global_position) * speed
 	
-	var collision = move_and_collide(velocity)
+	var collision: KinematicCollision2D = move_and_collide(velocity)
 	if collision:
-		pick_up()
+		handle_pick_up()
 
-func pick_up() -> void:
+func handle_pick_up() -> void:
 	QuestManager.process_item_pick_up(item)
+	if item.is_usable:
+		item.use()
 	queue_free()
 
 func _on_mouse_entered() -> void:

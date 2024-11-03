@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://byo8ilc8pecq3"]
+[gd_scene load_steps=41 format=3 uid="uid://byo8ilc8pecq3"]
 
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy.gd" id="1_3odng"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="2_b5yu8"]
 [ext_resource type="Material" uid="uid://cdoqdu3ds8cs2" path="res://shaders/hit_flash_material.tres" id="2_qkup8"]
 [ext_resource type="Resource" uid="uid://rvu27fdetknk" path="res://resources/items/mushroom_head.tres" id="3_3g08i"]
 [ext_resource type="Texture2D" uid="uid://dq02io0pd8fw" path="res://sprites/npcs/enemies/fungiant.png" id="3_almm7"]
+[ext_resource type="Resource" uid="uid://c2fvxoxo4mcls" path="res://resources/items/heart.tres" id="3_khxed"]
 [ext_resource type="Texture2D" uid="uid://b8ik4x4fy0mi4" path="res://sprites/shadows/shadow-large.png" id="4_ud8mc"]
 [ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="5_rdwml"]
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy_wander.gd" id="6_cjnpo"]
@@ -205,7 +206,7 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_3odng")
 RUN_SPEED = 30
-drop_items = Array[ExtResource("2_b5yu8")]([ExtResource("3_3g08i")])
+drop_items = Array[ExtResource("2_b5yu8")]([ExtResource("3_khxed"), ExtResource("3_3g08i")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("2_qkup8")

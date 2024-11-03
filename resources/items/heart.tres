@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c2fvxoxo4mcls"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_trttf"]
+[ext_resource type="Texture2D" uid="uid://dstsylmp2rr8c" path="res://sprites/items/heart.png" id="2_hv2ll"]
+
+[resource]
+script = ExtResource("1_trttf")
+title = ""
+texture = ExtResource("2_hv2ll")
+drop_chance = 1.0
+is_usable = true
+usable_type = 1
+usable_amount = 2

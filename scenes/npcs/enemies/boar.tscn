@@ -1,8 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://c8gdyox0utxlc"]
+[gd_scene load_steps=40 format=3 uid="uid://c8gdyox0utxlc"]
 
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy.gd" id="1_rpm3r"]
 [ext_resource type="Material" uid="uid://cdoqdu3ds8cs2" path="res://shaders/hit_flash_material.tres" id="2_8mogg"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_66f46"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_byncr"]
+[ext_resource type="Resource" uid="uid://c2fvxoxo4mcls" path="res://resources/items/heart.tres" id="3_mms8f"]
 [ext_resource type="Texture2D" uid="uid://bdhdnjtp2d2ux" path="res://sprites/npcs/enemies/boar.png" id="3_rr1b5"]
 [ext_resource type="Texture2D" uid="uid://b8ik4x4fy0mi4" path="res://sprites/shadows/shadow-large.png" id="4_kwg5n"]
 [ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="5_pu20s"]
@@ -203,6 +205,7 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_rpm3r")
 RUN_SPEED = 80
+drop_items = Array[ExtResource("2_66f46")]([ExtResource("3_mms8f")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("2_8mogg")
