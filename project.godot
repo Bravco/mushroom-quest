@@ -31,6 +31,7 @@ gdscript/warnings/unused_signal=0
 
 directories/dch_directory={
 "blacksmith": "res://dialogic/characters/blacksmith.dch",
+"dwarf": "res://dialogic/characters/dwarf.dch",
 "elf": "res://dialogic/characters/elf.dch",
 "guard": "res://dialogic/characters/guard.dch",
 "vendor": "res://dialogic/characters/vendor.dch"
@@ -39,6 +40,7 @@ directories/dtl_directory={
 "blacksmith": "res://dialogic/timelines/blacksmith.dtl",
 "cold_hearted": "res://dialogic/timelines/quests/cold_hearted.dtl",
 "cold_hearted_completed": "res://dialogic/timelines/quests/cold_hearted_completed.dtl",
+"dwarf": "res://dialogic/timelines/dwarf.dtl",
 "elf": "res://dialogic/timelines/elf.dtl",
 "guard": "res://dialogic/timelines/guard.dtl",
 "mushroom_heads": "res://dialogic/timelines/quests/mushroom_heads.dtl",

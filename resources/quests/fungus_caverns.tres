@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://npxbf5sa5uq8"]
+
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_ti8e4"]
+
+[resource]
+script = ExtResource("1_ti8e4")
+title = "Fungus Caverns"
+description = "Defeat the villianous gnome Wizard hidden in a cave in the north."
+objective_quantity = 1

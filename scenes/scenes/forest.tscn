@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://3ypxqn40xypw"]
+[gd_scene load_steps=28 format=4 uid="uid://3ypxqn40xypw"]
 
 [ext_resource type="Texture2D" uid="uid://dxnc4v2c52dlk" path="res://sprites/tilesets/forest_objects.png" id="1_fcg22"]
 [ext_resource type="Texture2D" uid="uid://bhyglrm8lnnf" path="res://sprites/tilesets/forest.png" id="2_ui1wm"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://v27o8umknm5a" path="res://scenes/npcs/elf.tscn" id="12_284f3"]
 [ext_resource type="PackedScene" uid="uid://c8gdyox0utxlc" path="res://scenes/npcs/enemies/boar.tscn" id="13_qe6n7"]
 [ext_resource type="PackedScene" uid="uid://c623c11g4iii0" path="res://scenes/npcs/enemies/gnome.tscn" id="14_elbwl"]
+[ext_resource type="PackedScene" uid="uid://cc3jl2gquwu1l" path="res://scenes/npcs/dwarf.tscn" id="14_qj866"]
 [ext_resource type="PackedScene" uid="uid://cba4i5d7nfedg" path="res://scenes/npcs/enemies/fungant.tscn" id="15_wxw1q"]
 [ext_resource type="PackedScene" uid="uid://byo8ilc8pecq3" path="res://scenes/npcs/enemies/fungiant.tscn" id="16_nbaqg"]
 [ext_resource type="PackedScene" uid="uid://dfjxgkoynvlsu" path="res://scenes/npcs/enemies/golem.tscn" id="17_83gvx"]
@@ -817,6 +818,9 @@ position = Vector2(258, -304)
 
 [node name="Elf" parent="NPCs" instance=ExtResource("12_284f3")]
 position = Vector2(395, -355)
+
+[node name="Dwarf" parent="NPCs" instance=ExtResource("14_qj866")]
+position = Vector2(1161, -677)
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
