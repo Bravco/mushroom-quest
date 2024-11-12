@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://npxbf5sa5uq8"]
+[gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://npxbf5sa5uq8"]
 
 [ext_resource type="Script" path="res://scripts/quest.gd" id="1_ti8e4"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/fungus_caverns.dtl" id="2_c4cot"]
+[ext_resource type="Resource" path="res://dialogic/timelines/quests/fungus_caverns_completed.dtl" id="3_eq6c4"]
 
 [resource]
 script = ExtResource("1_ti8e4")
 title = "Fungus Caverns"
 description = "Defeat the villianous gnome Wizard hidden in a cave in the north."
 objective_quantity = 1
+timeline = ExtResource("2_c4cot")
+timeline_completed = ExtResource("3_eq6c4")
