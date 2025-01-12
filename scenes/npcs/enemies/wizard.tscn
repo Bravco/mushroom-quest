@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="7_u0cct"]
 [ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="8_8y15u"]
 [ext_resource type="Script" path="res://scripts/npc/enemy/wizard_idle.gd" id="10_ctjpd"]
-[ext_resource type="Script" path="res://scripts/npc/enemy/enemy_chase.gd" id="10_v0uy2"]
+[ext_resource type="Script" path="res://scripts/npc/enemy/wizard_chase.gd" id="11_bb25e"]
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy_attack.gd" id="11_y4tow"]
 [ext_resource type="Script" path="res://scripts/npc/enemy/wizard_return.gd" id="13_101dk"]
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy_dead.gd" id="13_s658v"]
@@ -203,7 +203,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("10_ctjpd")
 
 [node name="Chase" type="Node" parent="StateMachine"]
-script = ExtResource("10_v0uy2")
+script = ExtResource("11_bb25e")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("11_y4tow")

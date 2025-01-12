@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d17gx25f5jw13"]
+[gd_scene load_steps=15 format=4 uid="uid://d17gx25f5jw13"]
 
 [ext_resource type="Texture2D" uid="uid://fkuxgev1q5r1" path="res://sprites/tilesets/cave.png" id="1_sj4ba"]
 [ext_resource type="Texture2D" uid="uid://oftja6yh2f7s" path="res://sprites/tilesets/cave_objects.png" id="2_6ohpn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cba4i5d7nfedg" path="res://scenes/npcs/enemies/fungant.tscn" id="6_y47ih"]
 [ext_resource type="PackedScene" uid="uid://byo8ilc8pecq3" path="res://scenes/npcs/enemies/fungiant.tscn" id="7_jyoaw"]
 [ext_resource type="PackedScene" uid="uid://ma2sh4noq1l4" path="res://scenes/npcs/enemies/wizard.tscn" id="8_w55ek"]
+[ext_resource type="PackedScene" uid="uid://c8bn6hkf7c2rs" path="res://scenes/boss_fight_trigger.tscn" id="9_7elmn"]
 [ext_resource type="PackedScene" uid="uid://f0krqxgttmqn" path="res://scenes/player/player.tscn" id="9_vgmyw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rxd4d"]
@@ -489,6 +490,7 @@ tile_map_data = PackedByteArray("AADj/+z/AAARAAIAAADj/+3/AAARAAIAAADj/+7/AAARAAI
 tile_set = SubResource("TileSet_a7dt1")
 
 [node name="Player" parent="." instance=ExtResource("9_vgmyw")]
+position = Vector2(0, -8)
 
 [node name="Gateway" parent="." instance=ExtResource("4_2vigr")]
 position = Vector2(0, 21)
@@ -567,5 +569,8 @@ position = Vector2(629, -392)
 
 [node name="Wizard" parent="Enemies" instance=ExtResource("8_w55ek")]
 position = Vector2(658, -663)
+
+[node name="BossFightTrigger" parent="." instance=ExtResource("9_7elmn")]
+position = Vector2(656, -557)
 
 [editable path="Gateway"]

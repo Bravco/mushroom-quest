@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8bn6hkf7c2rs"]
+
+[ext_resource type="Script" path="res://scripts/boss_fight_trigger.gd" id="1_8r8or"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g0nr"]
+size = Vector2(180, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn2n6"]
+size = Vector2(180, 6)
+
+[node name="BossFightTrigger" type="Node2D"]
+script = ExtResource("1_8r8or")
+
+[node name="Start" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+shape = SubResource("RectangleShape2D_5g0nr")
+
+[node name="Reset" type="Area2D" parent="."]
+position = Vector2(0, 20)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reset"]
+shape = SubResource("RectangleShape2D_qn2n6")
+
+[connection signal="body_entered" from="Start" to="." method="_on_start_body_entered"]
+[connection signal="body_entered" from="Reset" to="." method="_on_reset_body_entered"]

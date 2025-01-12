@@ -9,6 +9,7 @@ const scene_cave: PackedScene = preload("res://scenes/scenes/cave.tscn")
 
 var spawn_gateway_name: String
 var process_input: bool = true
+var boss_fight_active: bool = false
 
 func _ready() -> void:
 	SceneManager.scene_loaded.connect(_on_scene_loaded)

@@ -11,9 +11,7 @@ extends CharacterBody2D
 @onready var weapon: Node2D = $Weapon
 
 @export var ACCELERATION: int = 12
-@export_enum("Fast:75", "Medium:60", "Slow:50") var RUN_SPEED: int = 60
-@export var CHASE_TRIGGER_RADIUS: int = 70
-@export var CHASE_EXIT_RADIUS: int = 100
+@export_enum("Fast:75", "Medium:60", "Slow:50") var RUN_SPEED: int = 50
 @export var ATTACK_RADIUS: int = 20
 @export var drop_items: Array[Item] = []
 
