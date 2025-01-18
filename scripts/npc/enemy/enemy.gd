@@ -25,6 +25,7 @@ var move_speed: int = WALK_SPEED
 var target_position: Vector2
 var spawn_position: Vector2
 var facing_right: bool = true
+var boss_add: bool = false
 
 func _ready() -> void:
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
@@ -32,12 +33,13 @@ func _ready() -> void:
 	health.Death.connect(_on_health_death)
 	respawn_timer.timeout.connect(_on_respawn_timer_timeout)
 	
-	set_physics_process(false)
-	call_deferred("actor_setup")
-	
 	spawn_position = global_position
 	respawn_timer.wait_time = RESPAWN_TIME
 	respawn_timer.one_shot = true
+	
+	if not boss_add:
+		set_physics_process(false)
+		call_deferred("actor_setup")
 
 func _process(_delta: float) -> void:
 	animate()
@@ -115,11 +117,12 @@ func _on_health_death() -> void:
 	handle_drop_items()
 
 func _on_respawn_timer_timeout() -> void:
-	state_machine.current_state.transitioned.emit(state_machine.current_state, "wander")
-	global_position = spawn_position
-	visible = true
-	health.reset()
-	collision_shape.disabled = false
-	hurtbox.monitoring = true
-	if hitbox:
-		hitbox.monitorable = true
+	if not boss_add:
+		state_machine.current_state.transitioned.emit(state_machine.current_state, "wander")
+		global_position = spawn_position
+		visible = true
+		health.reset()
+		collision_shape.disabled = false
+		hurtbox.monitoring = true
+		if hitbox:
+			hitbox.monitorable = true

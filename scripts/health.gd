@@ -5,7 +5,7 @@ signal Harm
 signal Death
 
 @export var health_bar: ProgressBar
-@export_enum("High:6", "Medium:4", "Low:3") var MAX_HEALTH: int = 3
+@export_enum("Boss:18", "High:6", "Medium:4", "Low:3") var MAX_HEALTH: int = 3
 
 var health: int = MAX_HEALTH:
 	set(value):

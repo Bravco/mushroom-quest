@@ -1,11 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://ma2sh4noq1l4"]
+[gd_scene load_steps=38 format=3 uid="uid://ma2sh4noq1l4"]
 
 [ext_resource type="Script" path="res://scripts/npc/enemy/wizard.gd" id="1_ovxpx"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="2_8c5ph"]
 [ext_resource type="Resource" uid="uid://c2fvxoxo4mcls" path="res://resources/items/heart.tres" id="3_lj2b2"]
-[ext_resource type="Texture2D" uid="uid://20gkka2hg314" path="res://sprites/weapons/staff.png" id="4_ukms5"]
-[ext_resource type="Texture2D" uid="uid://qhr1rka0vnkx" path="res://sprites/npcs/enemies/gnome_hand.png" id="5_6be3f"]
+[ext_resource type="PackedScene" uid="uid://cm3ij7217ujya" path="res://scenes/npcs/enemies/wizard_weapon.tscn" id="4_842my"]
+[ext_resource type="PackedScene" uid="uid://cba4i5d7nfedg" path="res://scenes/npcs/enemies/fungant.tscn" id="4_icsqa"]
 [ext_resource type="Material" uid="uid://cdoqdu3ds8cs2" path="res://shaders/hit_flash_material.tres" id="5_r8d20"]
+[ext_resource type="PackedScene" uid="uid://byo8ilc8pecq3" path="res://scenes/npcs/enemies/fungiant.tscn" id="5_y52ug"]
+[ext_resource type="PackedScene" uid="uid://c623c11g4iii0" path="res://scenes/npcs/enemies/gnome.tscn" id="6_bjx3t"]
 [ext_resource type="Texture2D" uid="uid://d10ft32i7bqgr" path="res://sprites/npcs/enemies/wizard.png" id="7_fpn50"]
 [ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="7_u0cct"]
 [ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="8_8y15u"]
@@ -167,16 +169,9 @@ _data = {
 [node name="Wizard" type="CharacterBody2D"]
 script = ExtResource("1_ovxpx")
 drop_items = Array[ExtResource("2_8c5ph")]([ExtResource("3_lj2b2")])
+wave_enemies = Array[Resource]([ExtResource("4_icsqa"), ExtResource("5_y52ug"), ExtResource("6_bjx3t")])
 
-[node name="Weapon" type="Node2D" parent="."]
-position = Vector2(8, -12)
-
-[node name="Weapon" type="Sprite2D" parent="Weapon"]
-texture = ExtResource("4_ukms5")
-
-[node name="Hand" type="Sprite2D" parent="Weapon"]
-position = Vector2(0, 4)
-texture = ExtResource("5_6be3f")
+[node name="Weapon" parent="." instance=ExtResource("4_842my")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("5_r8d20")
@@ -217,7 +212,7 @@ script = ExtResource("13_s658v")
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("health_bar")]
 script = ExtResource("14_yvg14")
 health_bar = NodePath("../HealthBar")
-MAX_HEALTH = 4
+MAX_HEALTH = 18
 
 [node name="HealthBar" parent="." instance=ExtResource("15_bpv7u")]
 offset_top = -20.0

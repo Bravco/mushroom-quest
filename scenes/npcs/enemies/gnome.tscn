@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/item.gd" id="2_0q4oo"]
 [ext_resource type="Texture2D" uid="uid://bw07yeo0u0xcg" path="res://sprites/shadows/shadow-medium.png" id="2_ax11e"]
 [ext_resource type="Material" uid="uid://cdoqdu3ds8cs2" path="res://shaders/hit_flash_material.tres" id="2_c6cpb"]
-[ext_resource type="PackedScene" uid="uid://boja1i72suqbf" path="res://scenes/npcs/enemies/enemy_weapon.tscn" id="2_jv12r"]
+[ext_resource type="PackedScene" uid="uid://boja1i72suqbf" path="res://scenes/npcs/enemies/gnome_weapon.tscn" id="2_jv12r"]
 [ext_resource type="Resource" uid="uid://c2fvxoxo4mcls" path="res://resources/items/heart.tres" id="3_7tcrp"]
 [ext_resource type="Script" path="res://scripts/npc/state_machine.gd" id="3_msilx"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="4_4a13c"]
