@@ -76,6 +76,10 @@ func animate():
 				_:
 					animated_sprite.play("idle")
 
+func reset_boss_fight() -> void:
+	health.reset()
+	current_wave = 0
+
 func _on_animated_sprite_animation_finished() -> void:
 	if health.health <= 0:
 		visible = false

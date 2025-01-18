@@ -43,6 +43,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	animate()
+	
+	if boss_add and not GameManager.boss_fight_active:
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	if target_position:
@@ -100,6 +103,8 @@ func instantiate_item(item: Item) -> void:
 
 func _on_animated_sprite_animation_finished() -> void:
 	if health.health <= 0:
+		if boss_add:
+			queue_free()
 		visible = false
 		collision_shape.set_deferred("disabled", true)
 

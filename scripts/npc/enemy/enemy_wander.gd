@@ -8,7 +8,7 @@ func update(delta: float) -> void:
 	super(delta)
 	if is_player_targetable():
 		var player_dist = npc.global_position.distance_to(player.global_position)
-		if player_dist < npc.CHASE_TRIGGER_RADIUS:
+		if npc.boss_add or player_dist < npc.CHASE_TRIGGER_RADIUS:
 			transitioned.emit(self, "chase")
 
 func setup_health() -> void:

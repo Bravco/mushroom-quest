@@ -490,7 +490,7 @@ tile_map_data = PackedByteArray("AADj/+z/AAARAAIAAADj/+3/AAARAAIAAADj/+7/AAARAAI
 tile_set = SubResource("TileSet_a7dt1")
 
 [node name="Player" parent="." instance=ExtResource("9_vgmyw")]
-position = Vector2(-1, -19)
+position = Vector2(0, -22)
 
 [node name="Gateway" parent="." instance=ExtResource("4_2vigr")]
 position = Vector2(0, 21)
@@ -569,7 +569,7 @@ position = Vector2(658, -663)
 wave_spawnpoint = NodePath("../../WaveSpawnpoint")
 
 [node name="BossFightTrigger" parent="." instance=ExtResource("9_7elmn")]
-position = Vector2(656, -557)
+position = Vector2(656, -691)
 
 [node name="WaveSpawnpoint" type="Marker2D" parent="."]
 position = Vector2(672, -670)

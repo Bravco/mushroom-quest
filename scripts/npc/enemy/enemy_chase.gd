@@ -13,7 +13,7 @@ func update(_delta: float) -> void:
 		if player_dist < npc.ATTACK_RADIUS:
 			transitioned.emit(self, "attack")
 		
-		if player_dist > npc.CHASE_EXIT_RADIUS:
+		if not npc.boss_add and player_dist > npc.CHASE_EXIT_RADIUS:
 			transitioned.emit(self, "return")
 	else:
 		transitioned.emit(self, "return")
