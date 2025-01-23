@@ -1,42 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://di7fgv66wyo25"]
+[gd_scene load_steps=4 format=3 uid="uid://di7fgv66wyo25"]
 
 [ext_resource type="Texture2D" uid="uid://cg0q6goqarmr5" path="res://sprites/objects/furnace.png" id="1_2mai6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rp34d"]
 atlas = ExtResource("1_2mai6")
 region = Rect2(0, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blhil"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(0, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6qyi"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(32, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_21tvg"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(64, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gu1xr"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(96, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_36aqr"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(0, 96, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_amt3r"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(32, 96, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh455"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(64, 96, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxqre"]
-atlas = ExtResource("1_2mai6")
-region = Rect2(96, 96, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kp03f"]
 animations = [{
@@ -47,35 +15,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 10.0,
-"texture": SubResource("AtlasTexture_blhil")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r6qyi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_21tvg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gu1xr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_36aqr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_amt3r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hh455")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jxqre")
-}],
-"loop": true,
-"name": &"smelting",
-"speed": 10.0
 }]
 
 [node name="Furnace" type="StaticBody2D"]
@@ -83,7 +22,6 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kp03f")
 autoplay = "default"
-frame_progress = 0.795816
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-11, -8, 11, -8, 11, 19, -11, 19)

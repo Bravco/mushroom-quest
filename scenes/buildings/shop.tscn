@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqasupomauvjf"]
+[gd_scene load_steps=13 format=3 uid="uid://dqasupomauvjf"]
 
 [ext_resource type="Texture2D" uid="uid://fopslvmfje41" path="res://sprites/objects/green_shop.png" id="1_tjvbf"]
 [ext_resource type="PackedScene" uid="uid://cc66wljqilhbs" path="res://scenes/gateway.tscn" id="2_1drq6"]
@@ -35,38 +35,6 @@ region = Rect2(192, 112, 96, 112)
 atlas = ExtResource("1_tjvbf")
 region = Rect2(288, 112, 96, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkudn"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(0, 224, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_erkbp"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(96, 224, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmitk"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(192, 224, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jfew"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(288, 224, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvkk7"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(0, 336, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5cy6"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(96, 336, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4aqbj"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(192, 336, 96, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yi20p"]
-atlas = ExtResource("1_tjvbf")
-region = Rect2(288, 336, 96, 112)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_kp03f"]
 animations = [{
 "frames": [{
@@ -96,35 +64,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"closed",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 20.0,
-"texture": SubResource("AtlasTexture_fkudn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_erkbp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nmitk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6jfew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jvkk7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5cy6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4aqbj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yi20p")
-}],
-"loop": true,
-"name": &"opened",
 "speed": 10.0
 }]
 

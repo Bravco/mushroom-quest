@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dmm68eurt18q4" path="res://sprites/tilesets/forest_village_objects.png" id="3_posnv"]
 [ext_resource type="Texture2D" uid="uid://bd1r177w1c6qr" path="res://sprites/tilesets/forest_path.png" id="4_ot64k"]
 [ext_resource type="PackedScene" uid="uid://dqasupomauvjf" path="res://scenes/buildings/shop.tscn" id="5_kfd6o"]
-[ext_resource type="PackedScene" uid="uid://ciiwvwk4rqi4s" path="res://scenes/buildings/blue_house.tscn" id="6_rudn5"]
-[ext_resource type="PackedScene" uid="uid://dpk5idelaycac" path="res://scenes/buildings/red_house.tscn" id="7_0cvd7"]
+[ext_resource type="PackedScene" uid="uid://ciiwvwk4rqi4s" path="res://scenes/buildings/small_house.tscn" id="6_rudn5"]
+[ext_resource type="PackedScene" uid="uid://dpk5idelaycac" path="res://scenes/buildings/big_house.tscn" id="7_0cvd7"]
 [ext_resource type="PackedScene" uid="uid://di7fgv66wyo25" path="res://scenes/buildings/furnace.tscn" id="8_wfj3p"]
 [ext_resource type="PackedScene" uid="uid://f0krqxgttmqn" path="res://scenes/player/player.tscn" id="9_gdshj"]
 [ext_resource type="PackedScene" uid="uid://b6x1ncnttpwno" path="res://scenes/npcs/guard.tscn" id="10_sbn60"]
@@ -782,14 +782,14 @@ y_sort_enabled = true
 [node name="Shop" parent="NavigationRegion2D/Objects" instance=ExtResource("5_kfd6o")]
 position = Vector2(335, -357)
 
-[node name="BlueHouse" parent="NavigationRegion2D/Objects" instance=ExtResource("6_rudn5")]
+[node name="SmallHouse" parent="NavigationRegion2D/Objects" instance=ExtResource("6_rudn5")]
 position = Vector2(534, -295)
 
-[node name="RedHouse" parent="NavigationRegion2D/Objects" instance=ExtResource("7_0cvd7")]
+[node name="BigHouse" parent="NavigationRegion2D/Objects" instance=ExtResource("7_0cvd7")]
 position = Vector2(457, -434)
 
 [node name="Furnace" parent="NavigationRegion2D/Objects" instance=ExtResource("8_wfj3p")]
-position = Vector2(194, -345)
+position = Vector2(200, -345)
 
 [node name="Player" parent="." instance=ExtResource("9_gdshj")]
 position = Vector2(24, -108)

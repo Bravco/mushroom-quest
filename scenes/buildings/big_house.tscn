@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpk5idelaycac"]
+[gd_scene load_steps=11 format=3 uid="uid://dpk5idelaycac"]
 
 [ext_resource type="Texture2D" uid="uid://scvm7rk2j78j" path="res://sprites/objects/red_house.png" id="1_1q57n"]
 
@@ -34,38 +34,6 @@ region = Rect2(224, 112, 112, 112)
 atlas = ExtResource("1_1q57n")
 region = Rect2(336, 112, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5mnkw"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(0, 224, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_re5ld"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(112, 224, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfweh"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(224, 224, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qani"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(336, 224, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3p8bf"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(0, 336, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bt44c"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(112, 336, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_81nkb"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(224, 336, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i13ry"]
-atlas = ExtResource("1_1q57n")
-region = Rect2(336, 336, 112, 112)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_kp03f"]
 animations = [{
 "frames": [{
@@ -96,38 +64,9 @@ animations = [{
 "loop": true,
 "name": &"closed",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 20.0,
-"texture": SubResource("AtlasTexture_5mnkw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_re5ld")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dfweh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qani")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3p8bf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bt44c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_81nkb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i13ry")
-}],
-"loop": true,
-"name": &"opened",
-"speed": 10.0
 }]
 
-[node name="RedHouse" type="StaticBody2D"]
+[node name="BigHouse" type="StaticBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kp03f")

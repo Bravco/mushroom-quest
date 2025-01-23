@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciiwvwk4rqi4s"]
+[gd_scene load_steps=11 format=3 uid="uid://ciiwvwk4rqi4s"]
 
-[ext_resource type="Texture2D" uid="uid://by3nv5nvx0m2a" path="res://sprites/objects/blue_house.png" id="1_kft0p"]
+[ext_resource type="Texture2D" uid="uid://by3nv5nvx0m2a" path="res://sprites/objects/small_house.png" id="1_kft0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i768l"]
 atlas = ExtResource("1_kft0p")
@@ -34,38 +34,6 @@ region = Rect2(160, 80, 80, 80)
 atlas = ExtResource("1_kft0p")
 region = Rect2(240, 80, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnkh4"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(0, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hmsh"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(80, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8xue"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(160, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_crm68"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(240, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xg0g"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(0, 240, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r57af"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(80, 240, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u84gl"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(160, 240, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ml6rk"]
-atlas = ExtResource("1_kft0p")
-region = Rect2(240, 240, 80, 80)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_kp03f"]
 animations = [{
 "frames": [{
@@ -96,38 +64,9 @@ animations = [{
 "loop": true,
 "name": &"closed",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 20.0,
-"texture": SubResource("AtlasTexture_nnkh4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3hmsh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f8xue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_crm68")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xg0g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r57af")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u84gl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ml6rk")
-}],
-"loop": true,
-"name": &"opened",
-"speed": 10.0
 }]
 
-[node name="BlueHouse" type="StaticBody2D"]
+[node name="SmallHouse" type="StaticBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kp03f")
