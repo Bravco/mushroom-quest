@@ -177,8 +177,10 @@ wave_enemies = Array[Resource]([ExtResource("4_icsqa"), ExtResource("5_y52ug"), 
 material = ExtResource("5_r8d20")
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_lbpu1")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.768542
 
 [node name="Shadow" type="Sprite2D" parent="."]
 z_index = -1
