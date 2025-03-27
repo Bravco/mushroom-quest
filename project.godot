@@ -13,7 +13,7 @@ config_version=5
 config/name="Mushroom Quest"
 run/main_scene="res://scenes/scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -165,3 +165,4 @@ journal={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
