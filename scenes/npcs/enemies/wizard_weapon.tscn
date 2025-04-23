@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm3ij7217ujya"]
+[gd_scene load_steps=12 format=3 uid="uid://cm3ij7217ujya"]
 
 [ext_resource type="Script" path="res://scripts/npc/enemy/enemy_weapon.gd" id="1_13i5c"]
 [ext_resource type="Texture2D" uid="uid://d4mb0khh147rn" path="res://sprites/weapons/staff.png" id="2_bkx34"]
@@ -9,21 +9,9 @@
 atlas = ExtResource("2_bkx34")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jftv7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_823yw"]
 atlas = ExtResource("2_bkx34")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nsr6"]
-atlas = ExtResource("2_bkx34")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghybp"]
-atlas = ExtResource("2_bkx34")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j1krf"]
-atlas = ExtResource("2_bkx34")
-region = Rect2(96, 32, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nvn8y"]
 animations = [{
@@ -37,19 +25,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jftv7")
+"texture": SubResource("AtlasTexture_823yw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1nsr6")
+"texture": SubResource("AtlasTexture_823yw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jftv7")
+"texture": SubResource("AtlasTexture_823yw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghybp")
+"texture": SubResource("AtlasTexture_823yw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j1krf")
+"texture": SubResource("AtlasTexture_823yw")
 }],
 "loop": false,
 "name": &"swing",

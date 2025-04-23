@@ -545,7 +545,6 @@ material = ExtResource("3_uq75e")
 sprite_frames = SubResource("SpriteFrames_22n1v")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
 offset = Vector2(0, -12)
 
 [node name="Shadow" type="Sprite2D" parent="."]
